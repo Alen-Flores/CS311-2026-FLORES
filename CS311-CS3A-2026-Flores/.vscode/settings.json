@@ -1,0 +1,9 @@
+{
+  "editor.defaultFormatter": "csharpier.csharpier-vscode",
+  "[axaml]": {
+    "editor.defaultFormatter": "AvaloniaTeam.vscode-avalonia"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  }
+}

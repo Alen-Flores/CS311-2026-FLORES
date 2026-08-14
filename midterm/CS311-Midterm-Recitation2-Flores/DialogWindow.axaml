@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="CS311_Midterm_Recitation2_Flores.DialogWindow"
+        Title="" Width="300" Height="150"
+        WindowStartupLocation="CenterOwner"
+        KeyDown="onDialog_KeyDown"
+        xmlns:vm="using:CS311_Midterm_Recitation2_Flores"
+        x:DataType="vm:DialogWindow"
+        > 
+        <StackPanel Margin="20" Spacing="20" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+        <TextBlock 
+            x:Name="txtMessage"
+            Text="" TextWrapping="Wrap"
+            />
+
+        <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right">
+            <Button Content="Yes" 
+            IsVisible="{Binding ShowYes}" 
+            Command="{Binding SelectResultCommand}"
+            CommandParameter="{x:Static vm:DialogWindow+DialogResult.Yes}"
+            />
+            <Button Content="No" 
+            IsVisible="{Binding ShowNo}" 
+            Command="{Binding SelectResultCommand}"
+            CommandParameter="{x:Static vm:DialogWindow+DialogResult.No}"
+            />
+            <Button Content="Ok" 
+            IsVisible="{Binding ShowOk}" 
+            Command="{Binding SelectResultCommand}"
+            CommandParameter="{x:Static vm:DialogWindow+DialogResult.Ok}"
+            />
+        </StackPanel>
+    </StackPanel>
+</Window>

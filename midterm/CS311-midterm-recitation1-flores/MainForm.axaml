@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="500" Height="250"
+        x:Class="CS311_midterm_recitation1_flores.MainForm"
+        xmlns:vm="using:CS311_midterm_recitation1_flores"
+        x:DataType="vm:MainForm"
+        Title="CS311_midterm_recitation1_flores">
+        <DockPanel Margin="10">
+                <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="File Maintenance">
+                                <MenuItem Header="Accounts"/>
+                                <MenuItem Header="Equipments"/>
+                        </MenuItem>
+                        <MenuItem Header="View Logs">
+                        </MenuItem>
+                        <MenuItem Header="About">
+                        </MenuItem>
+                        <MenuItem Header="Logout"
+                                  Command="{Binding LogoutCommand}" >
+                        </MenuItem>
+                </Menu>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal"
+                            Spacing="10" >
+                        <TextBlock x:Name="toolstripStatusLabel1"/>
+                        <TextBlock x:Name="toolstripStatusLabel2"/>
+
+                </StackPanel>
+                <Grid>
+                </Grid>
+        </DockPanel>
+</Window>

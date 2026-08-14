@@ -1,0 +1,45 @@
+
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:CS311_Midterm_Recitation2_Flores"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="450"
+        x:Class="CS311_Midterm_Recitation2_Flores.FrmAccounts"
+        x:DataType="vm:FrmAccounts"
+        Loaded="frmaccounts_Load"
+        Title="CS311_Midterm_Recitation2_Flores">
+
+    <StackPanel Margin="20" Spacing="20">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <TextBlock Text="Search:" VerticalAlignment="Center" />
+            <TextBox  VerticalAlignment="Center" MinWidth="400" x:Name="searchTxtBox">
+                <TextBox.KeyBindings>
+                    <KeyBinding Gesture="Enter" Command="{Binding SearchCommand}"
+                                CommandParameter="{Binding Text, ElementName=searchTxtBox}" />
+                </TextBox.KeyBindings>
+            </TextBox>
+            <Button Content="_Search" VerticalAlignment="Center"
+                    Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=searchTxtBox}" />
+        </StackPanel>
+        <TableView Height="300" ItemsSource="{Binding Users}" >
+            <TableView.Columns>
+                <TableViewColumn Header="Name" Binding="{Binding Username}" />
+                <TableViewColumn Header="Type" Binding="{Binding Usertype}" />
+                <TableViewColumn Header="Status" Binding="{Binding Status}" />
+                <TableViewColumn Header="Created By" Binding="{Binding CreatedBy}" />
+                <TableViewColumn Header="Date Created" Binding="{Binding DateCreated}" />
+            </TableView.Columns>
+        </TableView>
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button MinWidth="100" HorizontalContentAlignment="Center"
+                    Content="_Add" Command="{Binding AddCommand}" />
+            <Button MinWidth="100" HorizontalContentAlignment="Center"
+                    Content="_Update"/>
+            <Button MinWidth="100" HorizontalContentAlignment="Center"
+                    Content="_Delete"/>
+            <Button MinWidth="100" HorizontalContentAlignment="Center"
+                    Content="_Refresh"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

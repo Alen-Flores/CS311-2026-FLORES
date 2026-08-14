@@ -1,0 +1,35 @@
+<Window
+  x:Class="CS311_CS3A_2026_Flores.Views.MainWindow"
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:vm="using:ViewModels"
+  Title="CS311_CS3A_2026_Flores"
+  Width="600"
+  Height="300"
+  Padding="20"
+  x:DataType="vm:MainViewModel"
+  >
+  <Grid
+    RowDefinitions="Auto,Auto,Auto,Auto"
+    ColumnDefinitions="Auto,*">
+    <Label Grid.Column="0" Grid.Row="0" Content="Input number:" Target="Input1" 
+      VerticalAlignment="Center" Margin="0,10,10,10"/>
+    <TextBox Grid.Column="1" Grid.Row="0" Name="Input1" Margin="0,10,0,10"
+             Text="{Binding Input1, Mode=TwoWay}" />
+    <Label Grid.Column="0" Grid.Row="1" Content="Input number:" Target="Input2" VerticalAlignment="Center" Margin="0,0,10,10"/>
+    <TextBox Grid.Column="1" Grid.Row="1" Name="Input2" Margin="0,10,0,10"
+             Text="{Binding Input2, Mode=TwoWay}" />
+    <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+      <Button Content="Add" Command="{Binding AddCommand}" Margin="5"/>
+      <Button Content="Subtract" Command="{Binding SubtractCommand}" Margin="5"/>
+      <Button Content="Multiply" Command="{Binding MultiplyCommand}" Margin="5"/>
+      <Button Content="Divide" Command="{Binding DivideCommand}" Margin="5"/>
+    </StackPanel>
+    <Label Grid.Column="0" Grid.Row="3" Content="Result:" Target="Result" 
+      VerticalAlignment="Center" Margin="0,10,10,10"/>
+    <TextBox 
+      Grid.Column="1" Grid.Row="3" Name="Result" Margin="0,10,10,10"
+      IsReadOnly="True" Text="{Binding Result, Mode=OneWay}"
+      />
+  </Grid>
+</Window>

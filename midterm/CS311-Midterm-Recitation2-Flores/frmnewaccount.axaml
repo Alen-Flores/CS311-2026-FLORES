@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CS311_Midterm_Recitation2_Flores"
+        Width="500" Height="400"
+        x:Class="CS311_Midterm_Recitation2_Flores.FrmNewAccount"
+        x:DataType="vm:FrmNewAccount"
+        Title="CS311_Midterm_Recitation2_Flores">
+
+
+  <Grid ColumnDefinitions="Auto,*"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+        RowSpacing="20" ColumnSpacing="10" Margin="20"
+        >
+
+    <TextBlock Text="Username:" Grid.Column="0" Grid.Row="0"
+               VerticalAlignment="Center" />
+    <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUsername" />
+    <TextBlock Text="Password:" Grid.Column="0" Grid.Row="1"
+               VerticalAlignment="Center"  />
+    <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPassword"
+             PasswordChar="●" RevealPassword="False" />
+    <CheckBox Content="Show Password" HorizontalAlignment="Right"
+              Grid.Column="1" Grid.Row="2" x:Name="cbShowPassword"
+              IsChecked="{Binding #txtPassword.RevealPassword}" />
+    <TextBlock Text="Usertype:" Grid.Column="0" Grid.Row="3"
+               VerticalAlignment="Center" />
+    <ComboBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch">
+      <ComboBoxItem>Administrator</ComboBoxItem>
+      <ComboBoxItem>Technical</ComboBoxItem>
+      <ComboBoxItem>User</ComboBoxItem>
+    </ComboBox>
+    <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+          ColumnDefinitions="*,*" RowDefinitions="auto"
+          ColumnSpacing="20" Margin="20"
+          HorizontalAlignment="Stretch" >
+
+          <Button Content="_Save"
+            Grid.Column="0" HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center" />
+          <Button Content="_Clear"
+            Grid.Column="1" HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center" />
+    </Grid>
+  </Grid>
+
+</Window>

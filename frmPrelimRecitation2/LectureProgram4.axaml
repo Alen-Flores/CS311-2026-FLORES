@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="frmPrelimRecitation2.LectureProgram4"
+        WindowStartupLocation="CenterScreen"
+        Title="frmPrelimRecitation2"
+        Padding="30"
+        >
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto"
+              ColumnDefinitions="Auto, *"
+              ColumnSpacing="10"
+              RowSpacing="10"
+              HorizontalAlignment="Stretch"
+              >
+                <TextBlock Text="Input num1:" Grid.Row="0" 
+                        Grid.Column="0" Margin="5"/>
+                <TextBox KeyDown="txtFirstNumber_KeyDown"  x:Name="txtFirstNumber" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                <TextBlock Text="Input num2:" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                <TextBox KeyDown="txtSecondNumber_KeyDown" x:Name="txtSecondNumber" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                <StackPanel Margin="20" Grid.Row="2" 
+                        Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        >
+                        <TextBlock Text="Select an operation:" />
+                        <ComboBox x:Name="cmbOperation" Width="200" HorizontalAlignment="Center" Margin="10">
+                                <ComboBoxItem Content="Add" />
+                                <ComboBoxItem Content="Subtract" />
+                                <ComboBoxItem Content="Multiply" />
+                                <ComboBoxItem Content="Divide" />
+                        </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                        <Button Width="100" 
+                                HorizontalContentAlignment="Center"
+                                Content="_Submit" x:Name="btnCalculate"
+                                Margin="10" Click="btnsubmit_Click" />
+                        <Button Width="100" 
+                                HorizontalContentAlignment="Center"
+                                Content="_Clear" x:Name="btnClear"
+                                Margin="10" Click="btnclear_Click" />
+                </StackPanel>
+        </Grid>
+</Window>

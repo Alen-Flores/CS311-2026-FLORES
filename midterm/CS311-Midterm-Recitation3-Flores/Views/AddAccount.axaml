@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+             x:Class="CS311_CS3A_2026_Flores.Views.AddAccountView"
+             Focusable="True"
+             x:DataType="vm:AddAccountViewModel"
+             >
+
+  <UserControl.KeyBindings>
+    <KeyBinding Gesture="Escape" Command="{Binding CloseCommand}" />
+  </UserControl.KeyBindings>
+
+  <Grid ColumnDefinitions="Auto,*"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+        MinWidth="400"
+        RowSpacing="20"
+        ColumnSpacing="10"
+        >
+
+    <TextBlock
+      Grid.Row="0" Grid.Column="0"
+      VerticalAlignment="Center"
+      Text="Username:"/>
+    <TextBox Grid.Row="0" Grid.Column="1"
+             Text="{Binding Username}"/>
+
+    <TextBlock
+      Grid.Row="1" Grid.Column="0"
+      VerticalAlignment="Center"
+      Text="Password:"/>
+    <TextBox Grid.Row="1" Grid.Column="1"
+             PasswordChar="●" RevealPassword="False"
+             x:Name="txtPassword"
+             Text="{Binding Password}"/>
+
+    <CheckBox Content="Show Password" HorizontalAlignment="Right"
+              Grid.Column="1" Grid.Row="2" x:Name="cbShowPassword"
+              IsChecked="{Binding #txtPassword.RevealPassword}" />
+
+
+
+
+    <TextBlock Grid.Row="3" Grid.Column="0"
+               VerticalAlignment="Center"
+               Text="Usertype:"/>
+    <ComboBox Grid.Row="3" Grid.Column="1"
+              HorizontalAlignment="Stretch"
+              ItemsSource="{Binding Usertypes}"
+              SelectedItem="{Binding SelectedType}"
+
+
+              />
+
+    <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+          ColumnDefinitions="*,*" RowDefinitions="auto"
+          ColumnSpacing="20"
+          HorizontalAlignment="Stretch" >
+      <Button Content="_Save" HorizontalAlignment="Right"
+              HorizontalContentAlignment="Center"
+              Width="200" Command="{Binding SaveCommand}"
+              Grid.Column="0" Grid.Row="0" />
+      <Button Content="_Clear" HorizontalAlignment="Left"
+              HorizontalContentAlignment="Center"
+              Width="200" Command="{Binding ClearCommand}"
+              Grid.Column="1" Grid.Row="0" />
+    </Grid>
+
+  </Grid>
+</UserControl>

@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="frmPrelimActivity1.MainWindow"
+        Padding="25"
+        Title="frmPrelimActivity1">
+    <Grid
+        ColumnDefinitions="Auto, *"
+        ColumnSpacing="10"
+        RowSpacing="10"
+        RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+        <Label Target="AdjacentInput" Grid.Column="0" Content="Adjacent" />
+        <TextBox Name="AdjacentInput" Grid.Column="1" />
+        <Label Target="HypotenuseInput" Grid.Row="1" Grid.Column="0" Content="Hypotenuse" />
+        <TextBox Name="HypotenuseInput" Grid.Row="1" Grid.Column="1" />
+        <Label Target="OppositeInput" Grid.Row="2" Grid.Column="0" Content="Opposite" />
+        <TextBox Name="OppositeInput" Grid.Row="2" Grid.Column="1" />
+        <Grid
+            ColumnDefinitions="*, *, *"
+            ColumnSpacing="10"
+            Margin="0, 10, 0, 0"
+            Grid.Row="3" Grid.ColumnSpan="2" >
+            <Button
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Name="ComputeSineButton"
+                Click="ComputeSineButton_OnCLick"
+                Grid.Column="0" Content="Compute _Sine" />
+            <Button
+                HorizontalAlignment="Stretch" Grid.Column="1"
+                HorizontalContentAlignment="Center"
+                Name="ComputeCosineButton"
+                Click="ComputeCosineButton_OnClick"
+                Content="Compute C_osine" />
+            <Button HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Name="ComputeTangentButton"
+                    Click="ComputeTangentButton_OnClick"
+                    Grid.Column="2" Content="Compute _Tangent" />
+        </Grid>
+        <Grid
+            ColumnDefinitions="*, *"
+            ColumnSpacing="10"
+            Margin="0, 0, 0, 10"
+            Grid.Row="4" Grid.ColumnSpan="2" >
+            <Button
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Name="ComputeAllButton"
+                Click="ComputeAllButton_OnClick"
+                Grid.Column="0" Content="Compute _All" />
+            <Button
+                HorizontalAlignment="Stretch" Grid.Column="1"
+                HorizontalContentAlignment="Center"
+                Name="ClearAllButton"
+                Click="ClearButton_OnClick"
+                Content="_Clear All" />
+        </Grid>
+        <Label Target="SineOutput" Grid.Row="5" Grid.Column="0" Content="Sine" />
+        <TextBox IsReadOnly="True" Name="SineOutput" Grid.Row="5" Grid.Column="1" />
+        <Label Target="CosineOutput" Grid.Row="6" Grid.Column="0" Content="Cosine" />
+        <TextBox IsReadOnly="True" Name="CosineOutput" Grid.Row="6" Grid.Column="1" />
+        <Label Target="TangentOutput" Grid.Row="7" Grid.Column="0" Content="Tangent" />
+        <TextBox IsReadOnly="True" Name="TangentOutput" Grid.Row="7" Grid.Column="1" />
+    </Grid>
+</Window>
