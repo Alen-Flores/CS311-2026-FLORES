@@ -80,6 +80,8 @@
 #link("https://drive.google.com/file/d/1KLSJ7PAbBXDtMvp2vpzWhRsqq6C1pgkJ/view?usp=sharing")
 
 = Code
+Full code is available at
+#link("https://github.com/Alen-Flores/CS311-2026-FLORES/tree/master/midterm/CS311-Midterm-Recitation3-Flores")
 
 #let code(file) = [
   === #file
