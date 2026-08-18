@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+        xmlns:views="using:CS311_CS3A_2026_Flores.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        d:DesignWidth="1200" d:DesignHeight="850"
+        x:Class="CS311_CS3A_2026_Flores.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="MainWindow"
+        >
+  <Window.DataTemplates>
+    <DataTemplate DataType="vm:AccountsViewModel">
+      <views:AccountsView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:EquipmentsViewModel">
+      <views:EquipmentsView />
+    </DataTemplate>
+  </Window.DataTemplates>
+
+  <DockPanel Margin="10">
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="File Maintenance">
+        <MenuItem Header="Accounts" IsVisible="{Binding AccountsMenuItemVisible}"
+                  Command="{Binding AccountsCommand}" />
+        <MenuItem Header="Equipments" IsVisible="{Binding EquipmentsMenuItemVisible}"
+                  Command="{Binding EquipmentsCommand}" />
+      </MenuItem>
+      <MenuItem Header="View Logs">
+      </MenuItem>
+      <MenuItem Header="About">
+      </MenuItem>
+      <MenuItem Header="Logout"
+                Command="{Binding LogoutCommand}" >
+      </MenuItem>
+    </Menu>
+
+    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal"
+                Spacing="20" >
+      <TextBlock Text="{Binding User.Username, StringFormat='Username: {0}'}" />
+      <TextBlock Text="{Binding User.Usertype, StringFormat='Usertype: {0}'}" />
+    </StackPanel>
+
+    <Border BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" 
+            Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+            IsVisible="{Binding CurrentPage, Converter={x:Static ObjectConverters.IsNotNull}}"
+            BorderThickness="2"
+            CornerRadius="3"
+            Padding="10"
+            Margin="5"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            >
+      <ContentControl Content="{Binding CurrentPage}"  />
+    </Border>
+
+  </DockPanel>
+</Window>

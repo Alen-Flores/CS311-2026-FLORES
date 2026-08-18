@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+        Width="500" Height="250"
+        x:Class="CS311_CS3A_2026_Flores.Views.Login"
+        x:DataType="vm:LoginViewModel"
+        WindowState="Normal"
+        CanResize="False"
+        Title="Login"
+        >
+  <Grid ColumnDefinitions="Auto,*"
+        RowDefinitions="Auto,Auto,Auto,Auto"
+        RowSpacing="20" ColumnSpacing="10" Margin="20"
+        >
+
+    <TextBlock Text="Username:" Grid.Column="0" Grid.Row="0"
+               VerticalAlignment="Center" />
+    <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUsername"
+             Text="{Binding Username}" />
+    <TextBlock Text="Password:" Grid.Column="0" Grid.Row="1"
+               VerticalAlignment="Center"  />
+    <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPassword"
+             PasswordChar="●" RevealPassword="False"
+             Text="{Binding Password}"
+             >
+      <TextBox.KeyBindings>
+        <KeyBinding Gesture="Enter" Command="{Binding LoginCommand}" />
+      </TextBox.KeyBindings>
+    </TextBox>
+    
+    <CheckBox Content="Show Password" HorizontalAlignment="Right"
+              Grid.Column="1" Grid.Row="2" x:Name="cbShowPassword"
+              IsChecked="{Binding #txtPassword.RevealPassword}" />
+    <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+          ColumnDefinitions="*,*" RowDefinitions="auto"
+          ColumnSpacing="20"
+          HorizontalAlignment="Stretch" >
+      <Button Content="_Login" HorizontalAlignment="Right"
+              HorizontalContentAlignment="Center"
+              Width="200" Command="{Binding LoginCommand}"
+              Grid.Column="0" Grid.Row="0" />
+      <Button Content="_Clear" HorizontalAlignment="Left"
+              HorizontalContentAlignment="Center"
+              Width="200" Command="{Binding ClearCommand}"
+              Grid.Column="1" Grid.Row="0" />
+    </Grid>
+
+  </Grid>
+</Window>
