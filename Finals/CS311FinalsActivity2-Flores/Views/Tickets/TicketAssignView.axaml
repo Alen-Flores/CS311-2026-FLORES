@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+             x:DataType="vm:TicketAssignViewModel"
+             mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="450"
+             x:Class="CS311_CS3A_2026_Flores.Views.TicketAssignView">
+  <Grid ColumnDefinitions="auto, *" RowSpacing="15" ColumnSpacing="10"
+        RowDefinitions="auto,auto,auto,auto,auto,auto" MinWidth="350"
+        >
+
+    <TextBlock Grid.Row="0" Grid.Column="0" Text="Ticket Number"
+               VerticalAlignment="Center" />
+    <TextBox Grid.Row="0" Grid.Column="1" IsReadOnly="True" Text="{Binding Ticket.TicketNumber}" />
+
+    <TextBlock Grid.Row="1" Grid.Column="0" Text="Problem"
+               VerticalAlignment="Center" />
+    <TextBox Grid.Row="1" Grid.Column="1" IsReadOnly="True" Text="{Binding Ticket.Problem}" />
+
+    <TextBlock Grid.Row="2" Grid.Column="0" Text="Description"
+               VerticalAlignment="Center" />
+    <TextBox Grid.Row="2" Grid.Column="1" IsReadOnly="True" Text="{Binding Ticket.Details}"
+             MinLines="4" />
+
+    <TextBlock Grid.Row="3" Grid.Column="0" Text="Date Created"
+               VerticalAlignment="Center" />
+    <TextBox Grid.Row="3" Grid.Column="1" IsReadOnly="True" Text="{Binding Ticket.DateCreated}" />
+    <TextBlock Grid.Row="4" Grid.Column="0" Text="Assign To"
+               VerticalAlignment="Center" />
+    <ComboBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch"
+              ItemsSource="{Binding TechnicalUsers}" SelectedIndex="{Binding SelectedUser}" />
+    <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="20"
+                Margin="10" HorizontalAlignment="Right">
+      <Button  Content="Cancel" MinWidth="100" HorizontalContentAlignment="Center"
+               Command="{Binding CloseCommand}" />
+      <Button  Content="Save" MinWidth="100" HorizontalContentAlignment="Center" Command="{Binding SaveCommand}" />
+    </StackPanel>
+
+  </Grid>
+</UserControl>

@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+             xmlns:view="using:CS311_CS3A_2026_Flores.Views"
+             Focusable="True"
+             x:Class="CS311_CS3A_2026_Flores.Views.EquipmentsView"
+             x:DataType="vm:EquipmentsViewModel"
+             >
+
+  <UserControl.DataTemplates>
+    <DataTemplate DataType="vm:AddEquipmentViewModel">
+      <view:AddEquipmentView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:UpdateEquipmentViewModel">
+      <view:UpdateEquipmentView />
+    </DataTemplate>
+  </UserControl.DataTemplates>
+
+  <DockPanel VerticalSpacing="20">
+    <StackPanel Orientation="Horizontal" Spacing="10"
+                DockPanel.Dock="Top">
+      <TextBlock Text="Search:" VerticalAlignment="Center" />
+      <TextBox x:Name="SearchBox" MinWidth="300">
+
+        <TextBox.KeyBindings>
+          <KeyBinding Gesture="Enter" Command="{Binding SearchCommand}"
+                      CommandParameter="{Binding #SearchBox.Text}" />
+        </TextBox.KeyBindings>
+
+      </TextBox>
+      <Button Content="Search" Command="{Binding SearchCommand}"
+              CommandParameter="{Binding #SearchBox.Text}" />
+    </StackPanel>
+
+    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="20">
+      <Button Content="_Add" Width="100" Command="{Binding AddCommand}"
+              HorizontalContentAlignment="Center"/>
+      <Button Content="_Update" Width="100" Command="{Binding UpdateCommand}"
+              HorizontalContentAlignment="Center"/>
+      <Button Content="_Delete" Width="100" Command="{Binding DeleteCommand}"
+              HorizontalContentAlignment="Center"/>
+      <Button Content="_Refresh" Width="100" Command="{Binding RefreshCommand}"
+              HorizontalContentAlignment="Center"/>
+    </StackPanel>
+
+    <Panel>
+      <TableView Margin="10" MinWidth="500" MinHeight="400"
+                 ItemsSource="{Binding Equipments}"
+                 SelectedIndex="{Binding SelectedIndex}"
+                 >
+        <TableView.Columns>
+          <TableViewColumn Header="Assetnumber" Binding="{Binding Assetnumber}" />
+          <TableViewColumn Header="Serialnumber" Binding="{Binding Serialnumber}" />
+          <TableViewColumn Header="Type" Binding="{Binding Type}" />
+          <TableViewColumn Header="Branch" Binding="{Binding Branch}" />
+          <TableViewColumn Header="Status" Binding="{Binding Status}" />
+        </TableView.Columns>
+      </TableView>
+
+      <Border BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}"
+              Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+              IsVisible="{Binding CurrentControl, Converter={x:Static ObjectConverters.IsNotNull}}"
+              BorderThickness="2"
+              CornerRadius="3"
+              Padding="20"
+              Margin="5"
+              HorizontalAlignment="Center" VerticalAlignment="Center"
+              >
+        <ContentControl Content="{Binding CurrentControl}"  />
+      </Border>
+    </Panel>
+
+  </DockPanel>
+</UserControl>

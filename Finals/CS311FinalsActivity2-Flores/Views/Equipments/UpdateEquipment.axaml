@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+             xmlns:model="clr-namespace:"
+             x:Class="CS311_CS3A_2026_Flores.Views.UpdateEquipmentView"
+             Focusable="True"
+             x:DataType="vm:UpdateEquipmentViewModel"
+             >
+
+  <UserControl.KeyBindings>
+    <KeyBinding Gesture="Escape" Command="{Binding CloseCommand}" />
+  </UserControl.KeyBindings>
+
+  <Grid ColumnDefinitions="Auto,*"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+        MinWidth="500"
+        RowSpacing="20"
+        ColumnSpacing="10"
+        >
+    
+    <TextBlock Text="Asset Number:" VerticalAlignment="Center"
+               Grid.Row="0" Grid.Column="0" />
+    <TextBox Grid.Row="0" Grid.Column="1" IsEnabled="False"
+               Text="{Binding Assetnumber}" />
+
+    <TextBlock Text="Serial Number:" VerticalAlignment="Center"
+               Grid.Row="1" Grid.Column="0" />
+    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Serialnumber}" />
+
+    <TextBlock Text="Type:" VerticalAlignment="Center"
+               Grid.Row="2" Grid.Column="0" />
+    <ComboBox Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Type}"
+              ItemsSource="{x:Static model:Equipment.Types}"
+              HorizontalAlignment="Stretch"/>
+
+    <TextBlock Text="Manufacturer:" VerticalAlignment="Center"
+               Grid.Row="3" Grid.Column="0" />
+    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Manufacturer}" />
+
+    <TextBlock Text="Year Model:" VerticalAlignment="Center"
+               Grid.Row="4" Grid.Column="0" />
+    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Yearmodel}" />
+
+    <TextBlock Text="Description:" VerticalAlignment="Center"
+               Grid.Row="5" Grid.Column="0" />
+    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Description}"
+             AcceptsReturn="True" TextWrapping="Wrap" MinLines="4" />
+
+    <TextBlock Text="Branch:" VerticalAlignment="Center"
+               Grid.Row="6" Grid.Column="0" />
+    <ComboBox Grid.Row="6" Grid.Column="1" SelectedItem="{Binding Branch}"
+              ItemsSource="{x:Static model:Equipment.Branches}"
+              HorizontalAlignment="Stretch"/>
+
+    <TextBlock Text="Department:" VerticalAlignment="Center"
+               Grid.Row="7" Grid.Column="0" />
+    <ComboBox Grid.Row="7" Grid.Column="1" SelectedItem="{Binding Department}"
+              ItemsSource="{x:Static model:Equipment.Departments}"
+              HorizontalAlignment="Stretch"/>
+
+    <TextBlock Text="Status:" VerticalAlignment="Center"
+               Grid.Row="8" Grid.Column="0" />
+    <ComboBox Grid.Row="8" Grid.Column="1" SelectedItem="{Binding Status}"
+              ItemsSource="{x:Static model:Equipment.Statuses}"
+              HorizontalAlignment="Stretch"/>
+
+    <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.ColumnSpan="2"
+                Spacing="20">
+      <Button MinWidth="70" HorizontalContentAlignment="Center" Content="Save"
+              Command="{Binding SaveCommand}" />  
+      <Button MinWidth="70" HorizontalContentAlignment="Center" Content="Cancel"
+              Command="{Binding CloseCommand}" />  
+    </StackPanel>
+      
+  </Grid>
+</UserControl>

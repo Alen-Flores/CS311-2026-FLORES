@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:CS311_CS3A_2026_Flores.ViewModels"
+             x:DataType="vm:DetailsViewModel"
+             mc:Ignorable="d" d:DesignWidth="400"
+             x:Class="CS311_CS3A_2026_Flores.Views.DetailsView">
+  <UserControl.KeyBindings>
+    <KeyBinding Gesture="Escape" Command="{Binding CloseCommand}" />
+  </UserControl.KeyBindings>
+
+  <Grid Margin="20"
+        ColumnDefinitions="auto,*" RowSpacing="10" ColumnSpacing="30"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+        >
+
+    <TextBlock Grid.Row="0" Grid.Column="0" Text="Ticket Number" FontWeight="Bold"/>
+    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Ticket.TicketNumber}"/>
+
+    <TextBlock Grid.Row="1" Grid.Column="0" Text="Problem" FontWeight="Bold"/>
+    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Ticket.Problem}"/>
+
+    <TextBlock Grid.Row="2" Grid.Column="0" Text="Details" FontWeight="Bold"/>
+    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Ticket.Details}" TextWrapping="Wrap"/>
+
+    <TextBlock Grid.Row="3" Grid.Column="0" Text="Status" FontWeight="Bold"/>
+    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Ticket.Status}"/>
+
+    <TextBlock Grid.Row="4" Grid.Column="0" Text="Created By" FontWeight="Bold"/>
+    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Ticket.CreatedBy}"/>
+
+    <TextBlock Grid.Row="5" Grid.Column="0" Text="Date Created" FontWeight="Bold"/>
+    <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Ticket.DateCreated}"/>
+
+    <TextBlock Grid.Row="6" Grid.Column="0" Text="Assigned To" FontWeight="Bold"/>
+    <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Ticket.AssignedTo}"/>
+
+    <TextBlock Grid.Row="7" Grid.Column="0" Text="Date Assigned" FontWeight="Bold"/>
+    <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding Ticket.DateAssigned}"/>
+
+    <TextBlock Grid.Row="8" Grid.Column="0" Text="Date Completed" FontWeight="Bold"/>
+    <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding Ticket.DateCompleted}"/>
+
+    <TextBlock Grid.Row="9" Grid.Column="0" Text="Approved By" FontWeight="Bold"/>
+    <TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding Ticket.ApprovedBy}"/>
+
+    <TextBlock Grid.Row="10" Grid.Column="0" Text="Date Approved" FontWeight="Bold"/>
+    <TextBlock Grid.Row="10" Grid.Column="1" Text="{Binding Ticket.DateApproved}"/>
+
+    <Button Grid.Row="11" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" 
+      Width="200" HorizontalAlignment="Right" Margin="0,20,0,0" 
+      Command="{Binding CloseCommand}" >
+      _Close
+    </Button>
+  </Grid>
+</UserControl>
